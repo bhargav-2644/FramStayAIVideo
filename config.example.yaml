@@ -1,0 +1,62 @@
+# Copy to config.yaml and fill in. Secrets never go in this file: set them
+# as environment variables (see .env.example).
+
+# Stop everything that spends money or sends email. Set to true to halt.
+pause: false
+
+# true: emails are written to data/outbox/ as .eml files instead of sent,
+# so you can read exactly what would go out.
+dry_run: true
+
+discover:
+  # What to search for in the region you pass on the command line.
+  queries:
+    - farm stay near {region}
+    - villa for rent near {region}
+    - resort with pool near {region}
+  max_results_per_query: 60   # Places API returns at most 60 per query
+
+qualify:
+  min_rating: 4.0
+  min_reviews: 20
+  min_photos: 3
+
+video:
+  # Which generator makes the clips:
+  #   kenburns  free, made locally with ffmpeg: slow zoom and pan on the photo.
+  #             Good for testing the whole pipeline without spending anything.
+  #   fal       an image-to-video model on fal.ai (needs FAL_KEY). Set
+  #             fal_endpoint to the model the bake-off picked.
+  provider: kenburns
+  fal_endpoint: fal-ai/kling-video/v3/pro/image-to-video
+  fal_extra_args: {duration: "5"}
+  shots: 3                 # photos per video
+  clip_seconds: 5
+  max_spend_usd: 25        # stop generating once this run has spent this much
+  usd_per_second: 0.224    # used only to track spend against max_spend_usd
+  music: ""                # optional path to a licensed music track (mp3/m4a)
+
+outreach:
+  # Every video waits for you to approve it with `approve` before it can be
+  # emailed. Leave this on at least for the first 20.
+  require_approval: true
+  daily_send_limit: 20
+  followup_days: [4, 9]    # follow-ups if there is no reply; then stop
+  price_from: "10,000"
+  whatsapp_number: ""      # e.g. 919876543210; adds a click-to-chat link
+  sender:
+    name: Your Name
+    business: Your Studio
+    city: Hyderabad
+    phone: "+91 00000 00000"
+    email: hello@your-sending-domain.in
+
+smtp:
+  host: smtp.your-provider.com
+  port: 587
+  username: hello@your-sending-domain.in
+
+imap:
+  host: imap.your-provider.com
+  port: 993
+  username: hello@your-sending-domain.in
