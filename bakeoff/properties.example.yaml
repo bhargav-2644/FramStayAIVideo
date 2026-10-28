@@ -1,0 +1,31 @@
+# Copy this file to properties.yaml and fill it in with 3 to 5 real
+# properties. Photo paths are relative to this file. Use photos the owner
+# published on their own website or Instagram, and keep them private: this
+# is a test, not something to send.
+#
+# Each property needs 3 shots. Pick one camera move per shot:
+#   rise_reveal    hero exterior, slow rise that reveals the property
+#   push_in        entrance, pool or path, slow forward move
+#   orbit          a standalone villa or cottage, gentle partial orbit
+#   lateral_glide  garden, terrace or lawn, sideways move
+#   pull_back      closing view, slow move backwards and up
+#   interior_glide any indoor photo; the only move allowed indoors
+#
+# subject is a short description of what the photo shows; it goes into the
+# prompt. end_photo is optional and is used only by models with a last frame.
+
+properties:
+  - id: coorg-coffee-estate
+    name: Example Coffee Estate Stay
+    region: Coorg
+    shots:
+      - photo: photos/coorg-coffee-estate/exterior.jpg
+        move: rise_reveal
+        subject: a stone cottage with a red tiled roof surrounded by coffee plants
+      - photo: photos/coorg-coffee-estate/pool.jpg
+        move: push_in
+        subject: an infinity pool facing misty green hills
+      - photo: photos/coorg-coffee-estate/lawn.jpg
+        move: lateral_glide
+        subject: a lawn with wooden deck chairs under tall silver oak trees
+        end_photo: photos/coorg-coffee-estate/lawn-wide.jpg

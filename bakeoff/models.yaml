@@ -1,0 +1,44 @@
+# Bake-off shortlist from docs/research/video-models.md (October 2026).
+# Prices are approximate third-party figures in US dollars per second of
+# video, without audio. Check each provider's own page and update them here
+# before the run; the report uses them to work out cost per sendable clip.
+
+usd_to_inr: 88
+
+models:
+  - id: omni-flash
+    name: Gemini Omni Flash (preview)
+    usd_per_second: 0.10
+    resolution: 720p
+    clip_seconds: 5
+    where: Gemini API (gemini-omni-flash-preview)
+
+  - id: veo-fast
+    name: Veo 3.1 Fast
+    usd_per_second: 0.12
+    resolution: 1080p
+    clip_seconds: 5
+    where: Gemini API or Google Flow
+    notes: Supports a last frame; use it when a shot lists end_photo.
+
+  - id: seedance
+    name: Seedance 2.5
+    usd_per_second: 0.23
+    resolution: 720p
+    clip_seconds: 5
+    where: BytePlus ModelArk or Higgsfield
+    notes: Accepts several reference images; add the property's other photos.
+
+  - id: wan3
+    name: Wan 3.0
+    usd_per_second: 0.10
+    resolution: 720p
+    clip_seconds: 5
+    where: fal.ai or Alibaba Cloud
+
+  - id: kling-pro
+    name: Kling 3.0 Pro (baseline)
+    usd_per_second: 0.224
+    resolution: 1080p
+    clip_seconds: 5
+    where: Kling web app or fal.ai

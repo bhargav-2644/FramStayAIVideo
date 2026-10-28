@@ -1,0 +1,8 @@
+__pycache__/
+.venv/
+.pytest_cache/
+
+# Bake-off inputs and outputs: owners' photos and generated clips stay local.
+bakeoff/properties.yaml
+bakeoff/photos/
+bakeoff-run/
